@@ -1,0 +1,19 @@
+/**
+	write a rule which read from the memory location 50 and 100 and write it to 150
+	define MAR and MBR register to please address and data to read and write..
+	define an array that we need to treat it as RAM/Main memory
+	Flow is: MAR.load(50) -> MBR.write(ARRMEM[50]) -> MAR.load(100) -> MBR.write(ARRMEM[100])
+	MAR.load(50) .. this is normal thing you can do
+	MBR.write(ARRMEM[50]) .. this will need a analysis. You need to see how to declare the array and initalize it in bluespec rest is now easy.
+*/
+
+https://github.com/kcamenzind/BluespecIntroGuide/blob/master/BluespecIntroGuide.md
+http://wiki.bluespec.com/Home/Data-Types/Vector
+http://wiki.bluespec.com/Home/Experienced-Users/Register-Updates
+
+To DO:
+
+1) Memory values are hard coded. Need to take that from src,dst,MAR values.
+2) Addition result by '+' operator is incorrect. Seems like will need to write own code to do addition.
+	No. Problem is all the stmts in the do_addition rule are being fired simultenously hence op1 <= op1 + op2; and memory.store(150,op1); ran in parallel will write old value of op1 in mem loc [150].
+	similarrly for step4,5. there write to mar and read from mar should be in separate rule.
