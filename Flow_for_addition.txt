@@ -1,0 +1,32 @@
+https://github.com/kcamenzind/BluespecIntroGuide/blob/master/BluespecIntroGuide.md
+http://wiki.bluespec.com/Home/Data-Types/Vector
+http://wiki.bluespec.com/Home/Experienced-Users/Register-Updates
+
+To Do:
+(enhancements)
+1) we can disable memory while accessing it by making cr1 as 0. Later make it 1 after using it.
+2) use state machines for the readablity if possible.(do at the last)
+
+(requirement)
+1) We are adding two unsigned numbers/vector/matrixes with current code. Make it for all cases like float,int etc. (last 20 min of lec 44 imp)
+2) size_t has bit size of 8(one byte) which is very small for the normal application. See if it can be replaced by CDADDRSIZE or CDDATASIZE. (last 20 min of lec 44 imp)
+
+above both problems will be solved by looking at lec 44 last 20 min...
+
+3) Focus on PAT. designed circuit should use as less PAT as possible. Power number we can't access but area and timeing we can get from the designed module(as done in assign1 and assign2).
+	So, try reducing Area and Timing. Timing can we reduced by doing all the addition parallely(but not possible since memory is single ported)
+4) write seperate test-bench module to initialize the vector/matrix. It should work like this: we should be able to instiantiate the mkvectoradder/mkmatrixadder module and give it as args the src1, src2, dst etc.	
+	idea to solve 3: Make any interface which contains three methods
+			putsrc1addr, putsrc2addr, putdstaddr.
+	mkvectoradder/mkmatrixadder module will inplement this interface. Then define those methods in this mkvectoradder/mkmatrixadder module. write code in such a way that until we don't get the values of this putsrc1addr, putsrc2addr, putdstaddr from test-becnh we won't fire other rules in mkvectoradder/mkmatrixadder.
+
+
+comment in the code.. 		--\_('_')_/--
+
+doubt:
+-> do we need to have a function as defined in the arm website?
+
+Assumption:
+-> matrix is stored in memory in RMO.
+-> used inbuilt '+' operator inside the bluespec.
+
