@@ -1,0 +1,20 @@
+https://github.com/kcamenzind/BluespecIntroGuide/blob/master/BluespecIntroGuide.md
+http://wiki.bluespec.com/Home/Data-Types/Vector
+http://wiki.bluespec.com/Home/Experienced-Users/Register-Updates
+typeconversion in bluespec: http://wiki.bluespec.com/Home/Data-Types/Data-Type-Conversion-Functions
+
+(to dos)
+-> floating point operations for matrix(pending).
+-> support for parameterization in test-benches instead of the main-file
+-> Make int and float doable from same source file(same accelerator code. used different test-benches for the int and float)
+
+Assumption:
+-> matrix is stored in memory in RMO.
+
+https://eescholars.iitm.ac.in/list/stulist
+
+(Before submission)
+1) add comments to the code well commented code..
+2) code documentation..
+
+
